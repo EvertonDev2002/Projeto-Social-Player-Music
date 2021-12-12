@@ -1,0 +1,10 @@
+.player-span {
+  font-size: 1em;
+  align-items: center;
+  color: var(--color_02);
+}
+@media screen and (max-width: 800px) {
+  .player-span-mobile {
+    font-size: 0.7em;
+  }
+}

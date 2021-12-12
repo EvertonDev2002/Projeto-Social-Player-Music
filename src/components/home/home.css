@@ -1,0 +1,10 @@
+.home-a {
+  font-size: 1em;
+  align-items: center;
+  color: var(--color_02);
+}
+@media screen and (max-width: 800px) {
+  .home-a-mobile {
+    font-size: 0.7em;
+  }
+}

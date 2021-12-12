@@ -1,0 +1,58 @@
+:root {
+  /* Cores de campos, bordas e linhas */
+  --color_01: #64A3B7;
+  --color_02: #E0D37D;
+  --color_03: #283139;
+  --color_04: #1A2129;
+
+  /* Fontes */
+  --font-chewy: "Chewy", cursive;
+  --font-gochi: "Gochi Hand", cursive;
+  --font-yanone: "Yanone Kaffeesatz", sans-serif;
+}
+::-webkit-scrollbar-track-piece {
+  /* Barra progresso */
+  background-color: var(--color_04);
+}
+::-moz-scrollbar-track-piece {
+  /* Barra progresso */
+  background-color: var(--color_04);
+}
+::-webkit-scrollbar {
+  /* Barra de rolagem */
+  width: 0.2em;
+  height: 0.2em;
+}
+::-moz-scrollbar {
+  /* Barra de rolagem */
+  width: 0.2em;
+  height: 0.2em;
+}
+::-webkit-scrollbar-thumb {
+  /* Alça da barra de rolagem */
+  border-radius: 0.2em;
+  background-color: var(--color_03);
+}
+::-moz-scrollbar-thumb {
+  /* Alça da barra de rolagem */
+  border-radius: 0.2em;
+  background-color: var(--color_03);
+}
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  line-height: 1;
+  list-style: none;
+  box-shadow: none;
+  font-size: 1.4rem;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color_04);
+}
