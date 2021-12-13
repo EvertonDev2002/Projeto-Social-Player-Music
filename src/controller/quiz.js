@@ -1,17 +1,8 @@
 const knex = require("../database");
 module.exports = {
   async index(req, res) {
-    const results = await knex("tb_infor").select(
-      "id",
-      "alternativa_01",
-      "alternativa_02",
-      "alternativa_03",
-      "alternativa_04",
-      "photo",
-      "question",
-      "feedback"
-    );
-    return res.json(results);
+    const data = await knex("tb_infor").select("*");
+    return res.json(data);
   },
   async create(req, res, next) {
     try {
@@ -42,7 +33,16 @@ module.exports = {
   },
   async search(req, res, next) {
     try {
-      return res.json(results);
+      const { page = 1 } = req.params;
+
+      const data = await knex("tb_infor")
+        .select("*")
+        .limit(1)
+        .offset((page - 1) * 1);
+
+      const total = await knex("tb_infor").count("id");
+
+      return res.json({ data, total });
     } catch (error) {
       next(error);
     }
