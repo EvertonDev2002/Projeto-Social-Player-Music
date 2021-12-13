@@ -1,12 +1,11 @@
 import "./form.css";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Form() {
-  const history = useNavigate()
-  localStorage.setItem("q", "1");
-  localStorage.setItem("rc", "0");
-  localStorage.setItem("rr", "0");
+  const history = useNavigate();
+  sessionStorage.setItem("question_number", "1");
+  sessionStorage.setItem("right_question", "0");
+  sessionStorage.setItem("wrong_question", "0");
   const user = localStorage.getItem("user");
 
   function onChange(ev) {
@@ -16,7 +15,7 @@ export default function Form() {
 
   function NextPage() {
     if (user != null) {
-     history("/questions");
+      history("/questions");
     }
   }
 

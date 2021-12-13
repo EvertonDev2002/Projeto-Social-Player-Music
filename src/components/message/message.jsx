@@ -3,38 +3,40 @@ import "./message.css";
 export default function Message() {
   const result = () => {
     const user = String(localStorage.getItem("user"));
-    const respErr = parseInt(localStorage.getItem("rr"));
-    const respCert = parseInt(localStorage.getItem("rc"));
-    const total =
-      parseInt(localStorage.getItem("rc")) +
+    const respCert = parseInt(sessionStorage.getItem("right_question"));
+    const total = parseInt(sessionStorage.getItem("question_number"));
+    const ratio =
+      parseInt(sessionStorage.getItem("right_question")) +
       "/" +
-      parseInt(localStorage.getItem("q"));
+      parseInt(sessionStorage.getItem("question_number"));
 
-    if (respCert === 10 || respCert >= 8) {
+    if (Math.round((respCert / total) * 100) >= 80) {
       return (
         <>
-          <span className="message-span">Total: {total}</span>
+          <span className="message-span">Total: {ratio}</span>
           <p className="message-p">
-            Parabéns, {user}! Você esteve presente o ano todo!
+            Parabéns, {user}! Você prestou atenção o tempo todo!
           </p>
         </>
       );
-    } else if (respErr === 10 || respCert <= 4) {
+    } else if (Math.round((respCert / total) * 100) <= 50) {
       return (
         <>
-          <span className="message-span">Total: {total}</span>
+          <span className="message-span">Total: {ratio}</span>
           <p className="message-p">
-            {" "}
-            Parabéns, {user}! Você é aquele que passa de ano sem ir na sala!
+            Ei, {user}, vamos revisar mais pouco o conteúdo!
           </p>
         </>
       );
-    } else if (respErr <= 5 || respCert === 5) {
+    } else if (
+      Math.round((respCert / total) * 100) >= 50 &&
+      Math.round((respCert / total) * 100) <= 80
+    ) {
       return (
         <>
-          <span className="message-span">Total: {total}</span>
+          <span className="message-span">Total: {ratio}</span>
           <p className="message-p">
-            Parabéns, {user}! Você faltou meio ano, está na média!
+            Parabéns, {user}! Mais um pouco e você estaria entre os melhores!
           </p>
         </>
       );

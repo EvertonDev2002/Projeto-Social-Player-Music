@@ -8,6 +8,7 @@ import Player from "../../components/player/player.jsx";
 import Music from "../../components/player/sound/sound_00.mp3";
 
 export default function PageMain() {
+  sessionStorage.clear()
   return (
     <Center>
       <Line line="1" />
